@@ -2,7 +2,7 @@ let fs = require('fs');
 let path = require('path');
 
 function treeFn(srcPath) {
-    // console.log("tree command executed with", src);
+    // console.log("tree command executed with", src);  //example
 
     if(srcPath == undefined) 
         srcPath = process.cwd();
