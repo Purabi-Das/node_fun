@@ -26,7 +26,7 @@ function organizeFn(srcPath) {
 
         for(let i = 0; i < allTheFiles.length; i++) {
             let folderName = extnChecker(allTheFiles[i]);
-            console.log(allTheFiles[i] + " belongs to —> " + folderName);
+            // console.log(allTheFiles[i] + " belongs to —> " + folderName);
         }
 
 }
