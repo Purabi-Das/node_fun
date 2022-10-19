@@ -5,7 +5,7 @@ let types = {
     media: ["mp4", "mkv", "mp3"],
     archives: ['zip', '7z', 'rar', 'tar', 'gz', 'ar', 'iso', "xz"],
     documents: ['docx', 'doc', 'pdf', 'xlsx', 'xls', 'odt', 'ods', 'odp', 'odg', 'odf', 'txt', 'ps', 'tex', 'png', 'jpg'],
-    app: ['exe', 'dmg', 'pkg', "deb"]
+    app: ['exe', 'dmg', 'pkg', "deb", "ppt"]
 }
 
 function organizeFn(srcPath) {
@@ -22,11 +22,19 @@ function organizeFn(srcPath) {
 
         // scan the entire organizedFilePath
         let allTheFiles = fs.readdirSync(srcPath);
-        console.log(allTheFiles);
+        // console.log(allTheFiles);
 
+        // extension check and classify which files belongs to which folder
         for(let i = 0; i < allTheFiles.length; i++) {
-            let folderName = extnChecker(allTheFiles[i]);
-            // console.log(allTheFiles[i] + " belongs to —> " + folderName);
+            let fullOriginalPath = path.join(srcPath, allTheFiles[i]);
+            // console.log(fullOriginalPath);
+            
+            if(fs.lstatSync(fullOriginalPath).isFile() == true) {
+                let folderName = extnChecker(allTheFiles[i]);
+                // console.log(allTheFiles[i] + " belongs to —> " + folderName);
+                
+                copyFileToDestDir(folderName, fullOriginalPath, organizedFilePath);
+            }
         }
 
 }
@@ -45,6 +53,20 @@ function extnChecker(fileName) {
     }
 
     return "Others";
+}
+
+function copyFileToDestDir(folderName, fullOriginalPath, organizedFilePath) {
+    let desFolderPath = path.join(organizedFilePath, folderName);
+
+    if(fs.existsSync(desFolderPath) == false) 
+        fs.mkdirSync(desFolderPath);
+
+        let originalFileName = path.basename(fullOriginalPath);
+        // console.log("originalFileName ↠► " + originalFileName);
+        let destFilePath = path.join(desFolderPath, originalFileName);
+
+        fs.copyFileSync(fullOriginalPath, destFilePath);
+        console.log("originalFileName copied to ▶ " + destFilePath);
 }
 
 module.exports = {
