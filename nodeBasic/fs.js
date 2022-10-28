@@ -58,7 +58,7 @@ console.log("does exist ?", doesExist);
 // read folder content
 // let address = "C:\\Users\\Purabi\\Desktop\\Dev\\nodeBasic";
 // let content = fs.readdirSync(address);
-// console.log("contents are - > ", content);
+// console.log("contents are ⇨ ", content);
 
 
 
