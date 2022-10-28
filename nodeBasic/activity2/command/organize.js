@@ -18,6 +18,7 @@ function organizeFn(srcPath) {
         let organizedFilePath = path.join(srcPath, 'organized_Files');
         if(fs.existsSync(organizedFilePath) == false) {
             fs.mkdirSync(organizedFilePath);
+            // console.log("directory created");
         }
 
         // scan the entire organizedFilePath
