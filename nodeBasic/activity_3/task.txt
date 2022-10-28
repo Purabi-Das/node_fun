@@ -1,0 +1,22 @@
+build wcat command 
+
+it is used to display or move a copy conetent of one or more files in the terminal
+
+
+General Systax:
+node wcat.js[options][filePaths]
+option to remove big line space(-s)
+option to add line number to non empty lines(-b)
+option to add line number to all lines(-n)
+
+commands:
+1- node wcat.js file path -> displays content of the file in the terminal
+2- node wcat.js file path1 filePath2 filePath3...... -> displays content of all the files in the terminal
+3- node wcat.js -s filePath -> convert big line breaks into single line break
+4- node wcat.js -n filePath -> give numbering to all the lines in the terminal
+
+Edge cases:
+1- If file entered is not found then it gives file does not exist error message
+2- -n and -b are two options which are mutually exclusive so 
+if user types both of them together only the first enter option should work
+
