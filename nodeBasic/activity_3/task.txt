@@ -11,7 +11,8 @@ option to add line number to all lines(-n)
 
 commands:
 1- node wcat.js file path -> displays content of the file in the terminal
-2- node wcat.js file path1 filePath2 filePath3...... -> displays content of all the files in the terminal
+2- node wcat.js file path1 filePath2 filePath3...... -> displays content of 
+all the files in the terminal
 3- node wcat.js -s filePath -> convert big line breaks into single line break
 4- node wcat.js -n filePath -> give numbering to all the lines in the terminal
 
